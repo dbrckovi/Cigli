@@ -1,0 +1,5 @@
+# theme = "bogster"
+
+[keys.normal]
+F5 = ":sh odin run source/ -out:out/cigli"
+F4 = ":sh odin build source/ -out:out/cigli; echo Build complete!"
