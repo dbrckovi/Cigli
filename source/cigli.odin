@@ -20,11 +20,14 @@ game_init :: proc() {
 	rl.InitAudioDevice()
 	rl.SetMasterVolume(1)
 	InitializeLevel(&_currentLevel)
+	InitializeEffects()
 }
 
 game_update :: proc() {
 	ft := rl.GetFrameTime()
 	_appInfo = GetWindowInformation()
+
+	UpdateEffects(ft)
 
 	// display app info
 	if rl.IsKeyPressed(.F1) {
@@ -81,6 +84,7 @@ game_draw :: proc() {
 	rl.BeginDrawing()
 	rl.ClearBackground(COLOR_BACKGROUND)
 
+	DrawEffects()
 	DrawLevel(&_currentLevel)
 
 	if _appInfoVisible {
