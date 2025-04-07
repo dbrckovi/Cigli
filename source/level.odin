@@ -125,7 +125,7 @@ DrawBrick :: proc(brick: Brick) {
 		brickOuter: rl.Rectangle = {f32(location.x), f32(location.y), f32(size.x), f32(size.y)}
 		brickInner := ScaleRectangle(brickOuter, -2)
 
-		rl.DrawRectangleLinesEx(brickOuter, 2, COLOR_BRICK_BORDER)
+		rl.DrawRectangleLinesEx(brickOuter, 1, COLOR_BRICK_BORDER)
 
 		switch brick.strength {
 		case 1:
