@@ -1,6 +1,7 @@
 package cigli
 
 import "core:fmt"
+import "core:math"
 import "core:strings"
 import rl "vendor:raylib"
 
@@ -30,5 +31,11 @@ AppInfo_ToString :: proc(appInfo: AppInfo) -> cstring {
 // Makes rectangle bigger or smaller, based on offset
 ScaleRectangle :: proc(rect: rl.Rectangle, offset: f32) -> rl.Rectangle {
 	return {rect.x - offset, rect.y - offset, rect.width + offset * 2, rect.height + offset * 2}
+}
+
+GetDistance :: proc(p1: [2]f32, p2: [2]f32) -> f32 {
+	dx := p1[0] - p2[0]
+	dy := p1[1] - p2[1]
+	return math.sqrt(dx * dx + dy * dy)
 }
 
